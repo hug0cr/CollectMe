@@ -17,6 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
+import fr.hug0cr.collectme.screens.login.LogInScreen
 import fr.hug0cr.collectme.screens.splash.SplashScreen
 import fr.hug0cr.collectme.ui.theme.CollectMeTheme
 import kotlinx.coroutines.CoroutineScope
@@ -75,5 +76,9 @@ fun resources(): Resources {
 fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
     composable(SPLASH_SCREEN) {
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+    }
+
+    composable(LOGIN_SCREEN) {
+        LogInScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 }

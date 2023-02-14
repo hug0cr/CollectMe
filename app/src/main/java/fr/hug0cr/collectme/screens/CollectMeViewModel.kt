@@ -1,4 +1,6 @@
 package fr.hug0cr.collectme.screens
 
-open class CollectMeViewModel {
+import androidx.lifecycle.ViewModel
+
+open class CollectMeViewModel : ViewModel() {
 }
