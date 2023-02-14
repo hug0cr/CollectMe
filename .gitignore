@@ -1,0 +1,14 @@
+.gradle
+/.idea
+*.iml
+/local.properties
+/captures
+/build
+.DS_Store
+.externalNativeBuild
+.cxx
+.vscode
+.project
+.settings
+.classpath
+google-services.json
