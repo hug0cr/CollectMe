@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
 import fr.hug0cr.collectme.screens.items.ItemsScreen
 import fr.hug0cr.collectme.screens.settings.SettingsScreen
+import fr.hug0cr.collectme.screens.signup.SignUpScreen
 import fr.hug0cr.collectme.screens.splash.SplashScreen
 import fr.hug0cr.collectme.ui.theme.CollectMeTheme
 import kotlinx.coroutines.CoroutineScope
@@ -84,6 +85,12 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
     }
 
     composable(SETTINGS_SCREEN) {
-        SettingsScreen() // TODO : gestion navigation
+        SettingsScreen( openScreen = { route -> appState.navigate(route) }) // TODO : gestion navigation
     }
+
+    composable(SIGN_UP_SCREEN) {
+        SignUpScreen() // TODO : Gestion de la navigation
+    }
+
+
 }

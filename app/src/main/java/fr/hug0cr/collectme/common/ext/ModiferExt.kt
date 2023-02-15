@@ -18,3 +18,11 @@ fun Modifier.toolbarActions(): Modifier {
 fun Modifier.spacer(): Modifier {
     return this.fillMaxWidth().padding(12.dp)
 }
+
+fun Modifier.fieldModifier(): Modifier {
+    return this.fillMaxWidth().padding(16.dp, 4.dp)
+}
+
+fun Modifier.basicButton(): Modifier {
+    return this.fillMaxWidth().padding(16.dp, 8.dp)
+}
