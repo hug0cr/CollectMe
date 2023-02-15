@@ -12,6 +12,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 
 @Composable
+fun BasicToolbar(@StringRes title: Int) {
+    TopAppBar(title = { Text(stringResource(title)) }, backgroundColor = toolbarColor())
+}
+
+@Composable
 fun ActionToolbar(
     @StringRes title: Int,
     @DrawableRes endActionIcon: Int,

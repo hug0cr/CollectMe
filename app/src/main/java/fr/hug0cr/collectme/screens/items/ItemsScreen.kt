@@ -17,7 +17,7 @@ import fr.hug0cr.collectme.R.drawable as AppIcon
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ItemsScreen(
-    // TODO : Ajouter lambda pour naviguer vers un autre écran
+    openScreen: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ItemsViewModel = hiltViewModel(),
 ) {
@@ -40,7 +40,7 @@ fun ItemsScreen(
                 title = AppText.items,
                 modifier = Modifier.toolbarActions(),
                 endActionIcon = AppIcon.ic_settings,
-                endAction = { } // TODO : viewModel lambda pour ouvrir SETTINGS_SCREEN
+                endAction = { viewModel.onSettingsClick(openScreen) }
             )
 
             // TODO : Afficher les items de l'utilisateur
