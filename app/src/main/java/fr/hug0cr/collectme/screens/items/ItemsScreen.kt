@@ -8,6 +8,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -16,18 +18,22 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import fr.hug0cr.collectme.common.composable.ActionToolbar
 import fr.hug0cr.collectme.common.ext.smallSpacer
 import fr.hug0cr.collectme.common.ext.toolbarActions
-import fr.hug0cr.collectme.R.string as AppText
 import fr.hug0cr.collectme.R.drawable as AppIcon
+import fr.hug0cr.collectme.R.string as AppText
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
+@ExperimentalMaterialApi
 fun ItemsScreen(
     openScreen: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ItemsViewModel = hiltViewModel(),
 ) {
-    val items = viewModel.items.collectAsStateWithLifecycle(emptyList())
+    val userItems = viewModel.items.collectAsStateWithLifecycle(emptyList())
+    val options by viewModel.options
+
+    LaunchedEffect(viewModel) { viewModel.loadTaskOptions() }
 
     Scaffold(
         floatingActionButton = {
@@ -52,8 +58,18 @@ fun ItemsScreen(
             )
             Spacer(modifier = Modifier.smallSpacer())
             LazyColumn {
-                items(items.value, key = { it.id }) { item ->
-                    ItemRow(item = item)
+                items(userItems.value, key = { it.id }) { userItem ->
+                    ItemRow(
+                        item = userItem,
+                        options = options,
+                        onActionClick = { action ->
+                            viewModel.onTaskActionClick(
+                                openScreen,
+                                userItem,
+                                action
+                            )
+                        }
+                    )
                 }
             }
         }

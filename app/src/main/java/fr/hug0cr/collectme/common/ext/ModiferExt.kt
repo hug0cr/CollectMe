@@ -1,9 +1,6 @@
 package fr.hug0cr.collectme.common.ext
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -38,4 +35,8 @@ fun Modifier.dropdownSelector(): Modifier {
 
 fun Modifier.smallSpacer(): Modifier {
     return this.fillMaxWidth().height(8.dp)
+}
+
+fun Modifier.contextMenu(): Modifier {
+    return this.wrapContentWidth()
 }
