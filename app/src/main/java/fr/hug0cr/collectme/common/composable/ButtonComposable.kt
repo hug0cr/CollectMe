@@ -1,10 +1,7 @@
 package fr.hug0cr.collectme.common.composable
 
 import androidx.annotation.StringRes
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -23,4 +20,8 @@ fun BasicButton(@StringRes text: Int, modifier: Modifier, action: () -> Unit) {
     ) {
         Text(text = stringResource(text), fontSize = 16.sp)
     }
+}
+@Composable
+fun BasicTextButton(@StringRes text: Int, modifier: Modifier, action: () -> Unit) {
+    TextButton(onClick = action, modifier = modifier) { Text(text = stringResource(text)) }
 }

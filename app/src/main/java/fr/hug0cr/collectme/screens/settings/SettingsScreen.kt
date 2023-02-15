@@ -32,7 +32,9 @@ fun SettingsScreen(
         BasicToolbar(AppText.settings)
         Spacer(modifier = Modifier.spacer())
         // TODO : Afficher ces cartes si l'utilisateur n'est pas connecté
-        RegularCardEditor(AppText.sign_in, AppIcon.ic_sign_in, "", Modifier.card()) { } // TODO : viewModel lambda pour navigation
+        RegularCardEditor(AppText.sign_in, AppIcon.ic_sign_in, "", Modifier.card()) {
+            viewModel.onSigInClick(openScreen)
+        }
         RegularCardEditor(AppText.create_account, AppIcon.ic_create_account, "", Modifier.card()) {
             viewModel.onSignUpClick(openScreen)
         }
