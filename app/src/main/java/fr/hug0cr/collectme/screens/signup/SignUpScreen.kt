@@ -18,6 +18,7 @@ import fr.hug0cr.collectme.R.string as AppText
 
 @Composable
 fun SignUpScreen(
+    openAndPopUp: (String, String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SignUpViewModel = hiltViewModel()
 ) {
@@ -35,7 +36,7 @@ fun SignUpScreen(
         RepeatPasswordField(uiState.repeatPassword, viewModel::onRepeatPasswordChange, fieldModifier)
 
         BasicButton(AppText.create_account, Modifier.basicButton()) {
-//            viewModel.onSignUpClick(openAndPopUp) // TODO : Gérer l'inscription
+            viewModel.onSignUpClick(openAndPopUp)
         }
     }
 }

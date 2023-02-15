@@ -49,12 +49,13 @@ fun EditItemScreen(
         Spacer(modifier = Modifier.spacer())
         val fieldModifier = Modifier.fieldModifier()
         BasicField(AppText.name, item.name, viewModel::onNameChange, fieldModifier)
+        BasicField(AppText.description, item.description, viewModel::onDescriptionChange, fieldModifier)
+        Spacer(modifier = Modifier.spacer())
         val categorySelection = Category.getByName(item.category).name
         CardSelector(AppText.category, Category.getOptions(), categorySelection, Modifier.card()) {
                 newValue ->
             viewModel.onCategoryChange(newValue)
         }
-        BasicField(AppText.description, item.description, viewModel::onDescriptionChange, fieldModifier)
 
     }
 }

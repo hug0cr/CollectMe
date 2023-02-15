@@ -5,6 +5,7 @@
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>
     <string name="generic_error">Something wrong happened. Please try again.</string>
+    <string name="email_error">Please insert a valid email.</string>
 
     <!-- ItemsScreen -->
     <string name="items">Items</string>
@@ -22,10 +23,12 @@
 
     <!-- SignInScreen -->
     <string name="sign_in">Sign in</string>
+    <string name="login_details">Enter your login details</string>
+    <string name="forgot_password">Forgot password? Click to get recovery email</string>
 
     <!-- SignUpScreen -->
     <string name="create_account">Create account</string>
-    <string name="login_details">Enter your login details</string>
-    <string name="forgot_password">Forgot password? Click to get recovery email</string>
+    <string name="password_error">Your password should have at least six digits and include one digit, one lower case letter and one upper case letter.</string>
+    <string name="password_match_error">Passwords do not match.</string>
 
 </resources>

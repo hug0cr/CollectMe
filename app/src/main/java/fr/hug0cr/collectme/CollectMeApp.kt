@@ -99,7 +99,7 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
     }
 
     composable(SIGN_UP_SCREEN) {
-        SignUpScreen() // TODO : Gestion de la navigation
+        SignUpScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
 
