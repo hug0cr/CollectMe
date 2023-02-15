@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import fr.hug0cr.collectme.common.ext.dropdownSelector
 
 @ExperimentalMaterialApi
 @Composable
@@ -52,5 +53,19 @@ private fun CardEditor(
             }
             Icon(painter = painterResource(icon), contentDescription = "Icon", tint = highlightColor)
         }
+    }
+}
+
+@Composable
+@ExperimentalMaterialApi
+fun CardSelector(
+    @StringRes label: Int,
+    options: List<String>,
+    selection: String,
+    modifier: Modifier,
+    onNewValue: (String) -> Unit
+) {
+    Card(backgroundColor = MaterialTheme.colors.onPrimary, modifier = modifier) {
+        DropdownSelector(label, options, selection, Modifier.dropdownSelector(), onNewValue)
     }
 }

@@ -17,6 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
+import fr.hug0cr.collectme.screens.edititem.EditItemScreen
 import fr.hug0cr.collectme.screens.items.ItemsScreen
 import fr.hug0cr.collectme.screens.settings.SettingsScreen
 import fr.hug0cr.collectme.screens.signin.SignInScreen
@@ -83,6 +84,10 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
 
     composable(ITEMS_SCREEN) {
         ItemsScreen(openScreen = { route -> appState.navigate(route) })
+    }
+
+    composable(EDIT_ITEM_SCREEN) {
+        EditItemScreen()
     }
 
     composable(SETTINGS_SCREEN) {

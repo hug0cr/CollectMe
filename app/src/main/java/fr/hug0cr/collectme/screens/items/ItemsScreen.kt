@@ -24,7 +24,7 @@ fun ItemsScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { }, // TODO : Pour ajouter des articles
+                onClick = { viewModel.onAddClick(openScreen) }, // TODO : Pour ajouter des articles
                 backgroundColor = MaterialTheme.colors.primary,
                 contentColor = MaterialTheme.colors.onPrimary,
                 modifier = modifier.padding(16.dp)

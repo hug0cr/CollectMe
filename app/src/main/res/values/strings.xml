@@ -9,6 +9,12 @@
     <!-- ItemsScreen -->
     <string name="items">Items</string>
 
+    <!-- EditItemScreen -->
+    <string name="edit_item">Edit your item</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+
     <!-- SettingsScreen -->
     <string name="settings">Settings</string>
     <string name="sign_out">Sign out</string>
