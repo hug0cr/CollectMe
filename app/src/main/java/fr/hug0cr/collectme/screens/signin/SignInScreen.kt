@@ -1,4 +1,4 @@
-package fr.hug0cr.collectme.screens.login
+package fr.hug0cr.collectme.screens.signin
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,10 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun LogInScreen(
+fun SignInScreen(
     openAndPopUp: (String, String) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: LogInViewModel = hiltViewModel()
+    viewModel: SignInViewModel = hiltViewModel()
 ) {
 
     Column(
