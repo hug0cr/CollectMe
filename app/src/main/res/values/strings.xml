@@ -2,4 +2,7 @@
     <!-- Common -->
     <string name="app_name">CollectMe</string>
     <string name="generic_error">Something wrong happened. Please try again.</string>
+
+    <!-- ItemsScreen -->
+    <string name="items">Items</string>
 </resources>

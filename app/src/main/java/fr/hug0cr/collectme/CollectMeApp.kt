@@ -17,6 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
+import fr.hug0cr.collectme.screens.items.ItemsScreen
 import fr.hug0cr.collectme.screens.login.LogInScreen
 import fr.hug0cr.collectme.screens.splash.SplashScreen
 import fr.hug0cr.collectme.ui.theme.CollectMeTheme
@@ -78,7 +79,7 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
-    composable(SIGN_IN_SCREEN) {
-        LogInScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+    composable(ITEMS_SCREEN) {
+        ItemsScreen() // TODO : Gestion de navigation
     }
 }
