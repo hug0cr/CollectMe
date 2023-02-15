@@ -19,6 +19,7 @@ import fr.hug0cr.collectme.R.string as AppText
 
 @Composable
 fun SignInScreen(
+    openAndPopUp: (String, String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SignInViewModel = hiltViewModel()
 ) {
@@ -35,9 +36,9 @@ fun SignInScreen(
     ) {
         EmailField(uiState.email, viewModel::onEmailChange, Modifier.fieldModifier())
         PasswordField(uiState.password, viewModel::onPasswordChange, Modifier.fieldModifier())
-        BasicButton(AppText.sign_in, Modifier.basicButton()) {  } // TODO : Gérer la connexion
+        BasicButton(AppText.sign_in, Modifier.basicButton()) { viewModel.onSignInClick(openAndPopUp) }
         BasicTextButton(AppText.forgot_password, Modifier.textButton()) {
-//            viewModel.onForgotPasswordClick() // TODO : Gérer l'oubli de password
+            viewModel.onForgotPasswordClick()
         }
     }
 }

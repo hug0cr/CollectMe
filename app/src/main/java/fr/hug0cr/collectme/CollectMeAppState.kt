@@ -4,7 +4,10 @@ import android.content.res.Resources
 import androidx.compose.material.ScaffoldState
 import androidx.navigation.NavHostController
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
+import fr.hug0cr.collectme.common.snackbar.SnackbarMessage.Companion.toMessage
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.launch
 
 class CollectMeAppState(
     val scaffoldState: ScaffoldState,
@@ -13,6 +16,15 @@ class CollectMeAppState(
     private val resources: Resources,
     coroutineScope: CoroutineScope,
 ) {
+    init {
+        coroutineScope.launch {
+            snackbarManager.snackbarMessages.filterNotNull().collect { snackbarMessage ->
+                val text = snackbarMessage.toMessage(resources)
+                scaffoldState.snackbarHostState.showSnackbar(text)
+            }
+        }
+    }
+
     fun popUp() {
         navController.popBackStack()
     }

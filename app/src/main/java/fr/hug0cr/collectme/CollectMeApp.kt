@@ -86,16 +86,19 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
         ItemsScreen(openScreen = { route -> appState.navigate(route) })
     }
 
+    // TODO : Mettre en place l'édition d'un item via arguments
     composable(EDIT_ITEM_SCREEN) {
         EditItemScreen()
     }
 
     composable(SETTINGS_SCREEN) {
-        SettingsScreen( openScreen = { route -> appState.navigate(route) }) // TODO : du redémarrage de l'app
+        SettingsScreen(
+            restartApp = { route -> appState.clearAndNavigate(route) },
+            openScreen = { route -> appState.navigate(route) })
     }
 
     composable(SIGN_IN_SCREEN) {
-        SignInScreen() // TODO : Gestion de la navigation
+        SignInScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
     composable(SIGN_UP_SCREEN) {
