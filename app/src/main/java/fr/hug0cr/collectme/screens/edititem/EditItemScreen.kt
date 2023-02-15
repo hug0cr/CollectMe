@@ -8,6 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,12 +27,14 @@ import fr.hug0cr.collectme.R.drawable as AppIcon
 @ExperimentalMaterialApi
 @Composable
 fun EditItemScreen(
+    popUpScreen: () -> Unit,
+    itemId: String,
     modifier: Modifier = Modifier,
     viewModel: EditItemViewModel = hiltViewModel(),
 ) {
     val item by viewModel.item
 
-    // TODO : Récupération d'un item
+    LaunchedEffect(Unit) { viewModel.initialize(itemId) }
 
     Column(
         modifier = modifier
@@ -44,7 +47,7 @@ fun EditItemScreen(
             title = AppText.edit_item,
             modifier = Modifier.toolbarActions(),
             endActionIcon = AppIcon.ic_check,
-            endAction = { } // TODO : Gérer la persistance
+            endAction = { viewModel.onDoneClick(popUpScreen) }
         )
         Spacer(modifier = Modifier.spacer())
         val fieldModifier = Modifier.fieldModifier()

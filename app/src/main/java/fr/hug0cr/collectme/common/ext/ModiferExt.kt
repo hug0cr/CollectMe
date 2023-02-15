@@ -1,6 +1,7 @@
 package fr.hug0cr.collectme.common.ext
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.ui.Alignment
@@ -33,4 +34,8 @@ fun Modifier.textButton(): Modifier {
 
 fun Modifier.dropdownSelector(): Modifier {
     return this.fillMaxWidth()
+}
+
+fun Modifier.smallSpacer(): Modifier {
+    return this.fillMaxWidth().height(8.dp)
 }

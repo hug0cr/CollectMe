@@ -16,6 +16,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
 import fr.hug0cr.collectme.screens.edititem.EditItemScreen
 import fr.hug0cr.collectme.screens.items.ItemsScreen
@@ -86,9 +87,14 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
         ItemsScreen(openScreen = { route -> appState.navigate(route) })
     }
 
-    // TODO : Mettre en place l'édition d'un item via arguments
-    composable(EDIT_ITEM_SCREEN) {
-        EditItemScreen()
+    composable(
+        route = "$EDIT_ITEM_SCREEN$ITEM_ID_ARG",
+        arguments = listOf(navArgument(ITEM_ID) { defaultValue = ITEM_DEFAULT_ID })
+    ) {
+        EditItemScreen(
+            popUpScreen = { appState.popUp() },
+            itemId = it.arguments?.getString(ITEM_ID) ?: ITEM_DEFAULT_ID
+        )
     }
 
     composable(SETTINGS_SCREEN) {
