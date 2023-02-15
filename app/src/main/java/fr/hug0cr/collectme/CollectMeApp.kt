@@ -78,7 +78,7 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
-    composable(LOGIN_SCREEN) {
+    composable(SIGN_IN_SCREEN) {
         LogInScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 }
