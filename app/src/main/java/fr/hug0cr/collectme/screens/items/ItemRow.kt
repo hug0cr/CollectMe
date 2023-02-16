@@ -21,7 +21,7 @@ import fr.hug0cr.collectme.model.Item
 fun ItemRow(
     item: Item,
     options: List<String>,
-    onActionClick: (String) -> Unit,
+    onActionClick: (String) -> Unit
 ) {
     Card(
         backgroundColor = MaterialTheme.colors.background,
@@ -31,8 +31,13 @@ fun ItemRow(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Column(modifier = Modifier.weight(1f).padding(4.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(4.dp)
+            ) {
                 Text(text = item.name, style = MaterialTheme.typography.body1)
+                Text(text = item.category, style = MaterialTheme.typography.body2)
             }
             DropdownContextMenu(options, Modifier.contextMenu(), onActionClick)
         }
