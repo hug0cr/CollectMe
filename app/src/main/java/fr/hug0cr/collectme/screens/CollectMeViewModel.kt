@@ -1,5 +1,6 @@
 package fr.hug0cr.collectme.screens
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
@@ -17,6 +18,7 @@ open class CollectMeViewModel(private val logService: LogService) : ViewModel() 
                     SnackbarManager.showMessage(throwable.toSnackbarMessage())
                 }
                 logService.logNonFatalCrash(throwable)
+                Log.e("COLLECT_ME_ERROR", throwable.toString())
             },
             block = block
         )

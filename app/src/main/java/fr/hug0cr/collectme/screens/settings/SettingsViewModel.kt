@@ -1,6 +1,7 @@
 package fr.hug0cr.collectme.screens.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import fr.hug0cr.collectme.CHANGE_PASSWORD_SCREEN
 import fr.hug0cr.collectme.SIGN_IN_SCREEN
 import fr.hug0cr.collectme.SIGN_UP_SCREEN
 import fr.hug0cr.collectme.SPLASH_SCREEN
@@ -30,4 +31,6 @@ class SettingsViewModel @Inject constructor(
             restartApp(SPLASH_SCREEN)
         }
     }
+
+    fun onChangePasswordClick(openScreen: (String) -> Unit) = openScreen(CHANGE_PASSWORD_SCREEN)
 }

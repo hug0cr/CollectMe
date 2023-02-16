@@ -59,6 +59,11 @@ class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth) : A
         createAnonymousAccount()
     }
 
+    override suspend fun changePassword(password: String) {
+        auth.currentUser!!.updatePassword(password).await()
+        auth.currentUser!!.email?.let { authenticate(it, password) }
+    }
+
     companion object {
         private const val LINK_ACCOUNT_TRACE = "linkAccount"
     }

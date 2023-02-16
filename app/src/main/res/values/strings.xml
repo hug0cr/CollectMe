@@ -29,11 +29,15 @@
     <string name="forgot_password">Forgot password? Click to get recovery email</string>
     <string name="recovery_email_sent">Check your inbox for the recovery email.</string>
     <string name="empty_password_error">Password cannot be empty.</string>
+    <string name="change_password">Change your password</string>
 
     <!-- SignUpScreen -->
     <string name="create_account">Create account</string>
     <string name="password_error">Your password should have at least six digits and include one digit, one lower case letter and one upper case letter.</string>
     <string name="password_match_error">Passwords do not match.</string>
+
+    <!-- ChangePasswordScreen -->
+    <string name="password_updated">Your password has been updated</string>
 
     <!-- Dialogs -->
     <string name="sign_out_title">Sign out?</string>

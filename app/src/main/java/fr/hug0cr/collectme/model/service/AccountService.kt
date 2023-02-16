@@ -15,4 +15,6 @@ interface AccountService {
     suspend fun linkAccount(email: String, password: String)
     suspend fun deleteAccount()
     suspend fun signOut()
+
+    suspend fun changePassword(password: String)
 }

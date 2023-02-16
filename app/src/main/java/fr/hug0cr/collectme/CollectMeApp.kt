@@ -18,6 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import fr.hug0cr.collectme.common.snackbar.SnackbarManager
+import fr.hug0cr.collectme.screens.changepassword.ChangePasswordScreen
 import fr.hug0cr.collectme.screens.edititem.EditItemScreen
 import fr.hug0cr.collectme.screens.items.ItemsScreen
 import fr.hug0cr.collectme.screens.settings.SettingsScreen
@@ -109,6 +110,10 @@ fun NavGraphBuilder.collectMeGraph(appState: CollectMeAppState) {
 
     composable(SIGN_UP_SCREEN) {
         SignUpScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+    }
+
+    composable(CHANGE_PASSWORD_SCREEN) {
+        ChangePasswordScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
 
